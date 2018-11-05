@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "274277837625",
+    "firebase_url": "https://mychatappusingfirebase-8361c.firebaseio.com",
+    "project_id": "mychatappusingfirebase-8361c",
+    "storage_bucket": "mychatappusingfirebase-8361c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274277837625:android:63a5191f3c1254a7",
+        "android_client_info": {
+          "package_name": "com.claire.mychatapp_usingfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "274277837625-v0ldvfbpdmvs8jl85df14fvhualbqv4p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.claire.mychatapp_usingfirebase",
+            "certificate_hash": "29295e570f5508ee15dba227320bd143615d3ddc"
+          }
+        },
+        {
+          "client_id": "274277837625-rd47jfsvmulhpbo7kuft538eqac4ld4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq6Enc249SzZQkI-trFG1Ubl9nfDNMVDY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274277837625-rd47jfsvmulhpbo7kuft538eqac4ld4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274277837625:android:68be2b911890f9cc",
+        "android_client_info": {
+          "package_name": "com.claire.mychatappusingfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "274277837625-pichklriivvsnrf7d5lmhr2msr5qspfu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.claire.mychatappusingfirebase",
+            "certificate_hash": "29295e570f5508ee15dba227320bd143615d3ddc"
+          }
+        },
+        {
+          "client_id": "274277837625-rd47jfsvmulhpbo7kuft538eqac4ld4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq6Enc249SzZQkI-trFG1Ubl9nfDNMVDY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274277837625-rd47jfsvmulhpbo7kuft538eqac4ld4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
