@@ -35,5 +35,7 @@ dependencies {
     // Firebase UI
     // Used in FirebaseUIActivity.
     implementation 'com.firebaseui:firebase-ui-auth:4.2.1'
+    // Firebase Database
+    implementation 'com.google.firebase:firebase-database:16.0.4'
 
 }
