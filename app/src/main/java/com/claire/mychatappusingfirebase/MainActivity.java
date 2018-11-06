@@ -1,17 +1,25 @@
 package com.claire.mychatappusingfirebase;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,11 +29,15 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
 
     private static final int SING_IN_REQUEST_CODE = 1;
+    //FirebaseUI類的FirebaseListAdapter，它大大降低了使用Firebase數據庫中存在ListView所需的工作量
+    FirebaseListAdapter<ChatMessage> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //隱藏鍵盤
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         //處理用戶登錄
         if (FirebaseAuth.getInstance().getCurrentUser() == null){
@@ -66,11 +78,55 @@ public class MainActivity extends AppCompatActivity {
                         );
                 // Clear the input
                 input.setText("");
+
+                //點擊按鈕後隱藏鍵盤
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
             }
         });
     }
 
+    //顯示聊天訊息
     private void displayChatMessage() {
+        ListView listOfMessage = findViewById(R.id.list_of_message);
+
+        FirebaseListOptions<ChatMessage> options = new FirebaseListOptions.Builder<ChatMessage>()
+                .setQuery(FirebaseDatabase.getInstance().getReference(), ChatMessage.class)
+                .setLayout(R.layout.message)
+                .build();
+
+         adapter = new FirebaseListAdapter<ChatMessage>(options) {
+            @Override
+            protected void populateView(@NonNull View v, @NonNull ChatMessage model, int position) {
+                // Get references to the views of message.xml
+                TextView messageText = v.findViewById(R.id.message_text);
+                TextView messageUser = v.findViewById(R.id.message_user);
+                TextView messageTime = v.findViewById(R.id.message_time);
+
+                messageText.setText(model.getMessageText());
+                messageUser.setText(model.getMessageUser());
+
+                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
+                        model.getMessageTime()));
+
+            }
+        };
+
+        listOfMessage.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 
     @Override

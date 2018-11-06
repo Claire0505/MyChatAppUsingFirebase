@@ -4,5 +4,6 @@
     <string name="message_time">message_time</string>
     <string name="message">message</string>
     <string name="sign_out">Sign out</string>
+    <string name="input">input</string>
 
 </resources>

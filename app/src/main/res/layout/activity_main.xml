@@ -25,11 +25,11 @@
 
             <EditText
                 android:id="@+id/ed_input"
+                android:hint="@string/input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
 
-            <requestFocus />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -47,6 +47,9 @@
     <ListView
         android:id="@+id/list_of_message"
         android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
